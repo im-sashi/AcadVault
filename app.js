@@ -1,3 +1,6 @@
+const dns = require("dns");
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
+
 require("dotenv").config();
 
 const express = require("express"); 
@@ -22,8 +25,6 @@ app.use("/api/v1", Cart);
 app.use("/api/v1", Order);
 
 //Creating Port
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+app.listen(process.env.PORT, () => {
+    console.log(`Server is Starting on port ${process.env.PORT}`);
 });
